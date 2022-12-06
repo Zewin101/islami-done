@@ -16,7 +16,6 @@ class _Setting_AppState extends State<Setting_App> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
       body: Center(
         child: DropdownButton(
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
