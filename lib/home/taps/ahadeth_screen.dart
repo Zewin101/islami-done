@@ -1,24 +1,16 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/my_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/provider/myProvider.dart';
+import 'package:provider/provider.dart';
 import '../ahadeth_detials/ahadeth_detials_screen.dart';
 
-class AhadethScreen extends StatefulWidget {
-  @override
-  State<AhadethScreen> createState() => _AhadethScreenState();
-}
-
-List<hadethModel> ahadeth = [];
-
-class _AhadethScreenState extends State<AhadethScreen> {
-  List<hadethModel> ahadeth = [];
-
+class AhadethScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    if (ahadeth.isEmpty) loadHadethFile();
+    var provider = Provider.of<MyProvider>(context);
+    if (provider.ahadeth.isEmpty) provider.loadHadethFile();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -38,22 +30,22 @@ class _AhadethScreenState extends State<AhadethScreen> {
           thickness: 3,
           color: MyThemeData.colorGold,
         ),
-        ahadeth.isEmpty
+        provider.ahadeth.isEmpty
             ? CircularProgressIndicator()
             : Expanded(
                 child: ListView.separated(
-                  itemCount: ahadeth.length,
+                  itemCount: provider.ahadeth.length,
                   itemBuilder: (context, index) => Center(
                     child: InkWell(
                       onTap: () {
                         Navigator.pushNamed(
                           context,
                           Hadeth_Detials.roueteName,
-                          arguments: ahadeth[index],
+                          arguments: provider.ahadeth[index],
                         );
                       },
                       child: Text(
-                        ahadeth[index].tittle,
+                        provider.ahadeth[index].tittle,
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
                     ),
@@ -69,20 +61,6 @@ class _AhadethScreenState extends State<AhadethScreen> {
               ),
       ],
     );
-  }
-
-  void loadHadethFile() async {
-    String content = await rootBundle.loadString('assets/files/ahadeth .txt');
-    List<String> AllHadeth = content.trim().split('#\r\n');
-    for (int i = 0; i < AllHadeth.length; i++) {
-      String hadeth = AllHadeth[i];
-      List<String> hadethLines = hadeth.split('\n');
-      String tittle = hadethLines[0];
-      hadethLines.removeAt(0);
-      hadethModel HadethModel = hadethModel(tittle, hadethLines);
-      ahadeth.add(HadethModel);
-      setState(() {});
-    }
   }
 }
 

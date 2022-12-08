@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:islami/my_theme.dart';
+
+import '../home/taps/ahadeth_screen.dart';
 
 class MyProvider extends ChangeNotifier {
   String languageLocal = 'en';
+
+  List<hadethModel> ahadeth = [];
   int currentIndex = 0;
   ThemeMode mode = ThemeMode.dark;
   bool language = true;
@@ -58,5 +63,19 @@ class MyProvider extends ChangeNotifier {
       counterColors == tsabeh.length - 1 ? counterColors = 0 : counterColors++;
     }
     notifyListeners();
+  }
+
+  void loadHadethFile() async {
+    String content = await rootBundle.loadString('assets/files/ahadeth .txt');
+    List<String> AllHadeth = content.trim().split('#\r\n');
+    for (int i = 0; i < AllHadeth.length; i++) {
+      String hadeth = AllHadeth[i];
+      List<String> hadethLines = hadeth.split('\n');
+      String tittle = hadethLines[0];
+      hadethLines.removeAt(0);
+      hadethModel HadethModel = hadethModel(tittle, hadethLines);
+      ahadeth.add(HadethModel);
+      notifyListeners();
+    }
   }
 }

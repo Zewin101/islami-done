@@ -5,6 +5,7 @@ import 'package:islami/home/sura_detials/sura_detials_screen.dart';
 import 'package:islami/my_theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/provider/homeScreenProvider.dart';
 import 'package:islami/provider/myProvider.dart';
 import 'package:islami/provider/sura_provider.dart';
 import 'package:provider/provider.dart';
