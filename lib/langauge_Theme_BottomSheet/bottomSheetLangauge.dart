@@ -19,24 +19,27 @@ class bottomSheetLangauge extends StatelessWidget {
             onTap: () {
               swith = !swith;
               provider.changeLanguage('en');
-              Navigator.pop(context);
             },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text('English',
-                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          color: provider.languageLocal == 'en'
-                              ? MyThemeData.colorGold
-                              : MyThemeData.colorBlack,
-                        )),
-                Icon(
-                  Icons.aspect_ratio,
-                  color: provider.languageLocal == 'en'
-                      ? MyThemeData.colorGold
-                      : MyThemeData.colorBlack,
-                ),
-              ],
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: provider.languageLocal == "ar"
+                    ? Colors.grey
+                    : MyThemeData.colorGold,
+              ),
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.english,
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1
+                        ?.copyWith(fontSize: 40, color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(
@@ -46,24 +49,42 @@ class bottomSheetLangauge extends StatelessWidget {
             onTap: () {
               swith = !swith;
               provider.changeLanguage('ar');
-              Navigator.pop(context);
             },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text('Arabic',
-                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          color: provider.languageLocal == 'ar'
-                              ? MyThemeData.colorGold
-                              : MyThemeData.colorBlack,
-                        )),
-                Icon(
-                  Icons.aspect_ratio,
-                  color: provider.languageLocal == 'ar'
-                      ? MyThemeData.colorGold
-                      : MyThemeData.colorBlack,
-                ),
-              ],
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: provider.languageLocal == "ar"
+                    ? MyThemeData.colorGold
+                    : Colors.grey,
+              ),
+              width: double.infinity,
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.arabic,
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1
+                        ?.copyWith(fontSize: 40, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          Container(
+            height: 70,
+            width: 150,
+            child: CloseButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              color: Colors.amber,
             ),
           ),
         ],

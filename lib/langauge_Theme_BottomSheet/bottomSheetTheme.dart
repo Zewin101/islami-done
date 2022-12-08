@@ -15,25 +15,26 @@ class bottomSheetTheme extends StatelessWidget {
           InkWell(
             onTap: () {
               provider.changeThemeMode(ThemeMode.light);
-
-              Navigator.pop(context);
             },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text('Lite',
-                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          color: provider.languageLocal == 'en'
-                              ? MyThemeData.colorGold
-                              : MyThemeData.colorBlack,
-                        )),
-                Icon(
-                  Icons.aspect_ratio,
-                  color: provider.mode == ThemeMode.light
-                      ? MyThemeData.colorGold
-                      : MyThemeData.colorBlack,
-                ),
-              ],
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: provider.mode == ThemeMode.light
+                    ? MyThemeData.colorGold
+                    : Colors.grey,
+              ),
+              width: double.infinity,
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(AppLocalizations.of(context)!.light,
+                      style: Theme.of(context)
+                          .textTheme
+                          .subtitle1
+                          ?.copyWith(fontSize: 40, color: Colors.white)),
+                ],
+              ),
             ),
           ),
           SizedBox(
@@ -42,24 +43,39 @@ class bottomSheetTheme extends StatelessWidget {
           InkWell(
             onTap: () {
               provider.changeThemeMode(ThemeMode.dark);
-              Navigator.pop(context);
             },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text('Dark',
-                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          color: provider.mode == 'Dark'
-                              ? Colors.red
-                              : MyThemeData.colorBlack,
-                        )),
-                Icon(
-                  Icons.aspect_ratio,
-                  color: provider.mode == ThemeMode.dark
-                      ? MyThemeData.colorGold
-                      : MyThemeData.colorBlack,
-                ),
-              ],
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: provider.mode == ThemeMode.dark
+                    ? MyThemeData.colorGold
+                    : Colors.grey,
+              ),
+              width: double.infinity,
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(AppLocalizations.of(context)!.dark,
+                      style: Theme.of(context)
+                          .textTheme
+                          .subtitle1
+                          ?.copyWith(fontSize: 40, color: Colors.white)),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          Container(
+            height: 70,
+            width: 150,
+            child: CloseButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              color: Colors.amber,
             ),
           ),
         ],

@@ -6,11 +6,11 @@ import 'package:islami/home/taps/sebha_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home/taps/setting.dart';
 import 'package:islami/my_theme.dart';
+import 'package:islami/provider/homeScreenProvider.dart';
 import 'package:islami/provider/myProvider.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
   static const String routeName = 'HomeScreen';
 
   @override
