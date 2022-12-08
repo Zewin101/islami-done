@@ -7,6 +7,14 @@
     "sabha":"sabha",
     "moshaf":"Moshaf",
     "click":"Click",
-    "setting":"setting"
+    "setting":"setting",
+    "theme":"Theme",
+    "language":"Language",
+    "arabic":"English",
+    "english":"English",
+    "light":"Light",
+    "dark":"Dark"
+
+
 
 }
