@@ -4,7 +4,7 @@ import 'package:islami/my_theme.dart';
 class MyProvider extends ChangeNotifier {
   String languageLocal = 'en';
   int currentIndex = 0;
-  ThemeMode mode = ThemeMode.dark;
+  ThemeMode mode = ThemeMode.light;
   bool language = true;
   Color colorIcon = Colors.black;
   bool modTheme = false;
@@ -39,13 +39,9 @@ class MyProvider extends ChangeNotifier {
     currentIndex = index;
     notifyListeners();
   }
-
   String changeBackGround() {
-    notifyListeners();
-    // return mode==ThemeMode.light?'assets/images/background.png':'assets/images/backgDark.png';
-
     if (mode == ThemeMode.dark) {
-      return 'assets/images/backgDark.png';
+      return 'assets/images/background.png';
     } else
       return 'assets/images/background.png';
   }

@@ -54,7 +54,6 @@ class HomeScreen extends StatelessWidget {
                   provider.language
                       ? provider.changeLanguage('ar')
                       : provider.changeLanguage('an');
-
                   provider.language = !provider.language;
                 },
                 icon: Icon(
@@ -73,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                 },
                 icon: Icon(
                   provider.mode == ThemeMode.dark
-                      ? Icons.nightlight_rounded
+                      ? Icons.nightlight_outlined
                       : Icons.light_mode,
                 ),
               ),
