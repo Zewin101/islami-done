@@ -6,31 +6,20 @@ import 'package:islami/home/taps/sebha_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home/taps/setting.dart';
 import 'package:islami/my_theme.dart';
+import 'package:islami/provider/myProvider.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   static const String routeName = 'HomeScreen';
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int currentIndex = 0;
-  String dropdownvalue = 'عربي';
-  List<String> items = [
-    'عربي',
-    'English',
-  ];
-  Color colorIcon = Colors.black;
-  bool language = true;
-
-  @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          'assets/images/background.png',
+          provider.changeBackGround(),
           width: double.infinity,
           fit: BoxFit.fitWidth,
         ),
@@ -62,14 +51,30 @@ class _HomeScreenState extends State<HomeScreen> {
               // ),
               IconButton(
                 onPressed: () {
-                  language = !language;
-                  setState(() {});
+                  provider.language
+                      ? provider.changeLanguage('ar')
+                      : provider.changeLanguage('an');
+
+                  provider.language = !provider.language;
                 },
                 icon: Icon(
                   Icons.language,
-                  color: language
-                      ? colorIcon = MyThemeData.colorBlack
-                      : colorIcon = MyThemeData.colorGold,
+                  color: provider.language
+                      ? provider.colorIcon = MyThemeData.colorDark
+                      : provider.colorIcon = MyThemeData.colorGold,
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  provider.modTheme
+                      ? provider.changeThemeMode(ThemeMode.light)
+                      : provider.changeThemeMode(ThemeMode.dark);
+                  provider.modTheme = !provider.modTheme;
+                },
+                icon: Icon(
+                  provider.mode == ThemeMode.dark
+                      ? Icons.nightlight_rounded
+                      : Icons.light_mode,
                 ),
               ),
             ],
@@ -79,15 +84,15 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           bottomNavigationBar: BottomNavigationBar(
               onTap: (index) {
-                currentIndex = index;
-                setState(() {});
+                provider.current_Index(index);
               },
-              currentIndex: currentIndex,
-              selectedItemColor:
-                  Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
-              unselectedItemColor: Theme.of(context)
-                  .bottomNavigationBarTheme
-                  .unselectedItemColor,
+              currentIndex: provider.currentIndex,
+              selectedItemColor: provider.mode == ThemeMode.light
+                  ? Colors.black
+                  : MyThemeData.colorGold,
+              unselectedItemColor: provider.mode == ThemeMode.light
+                  ? Colors.white
+                  : Colors.white,
               items: [
                 BottomNavigationBarItem(
                   icon: const ImageIcon(
@@ -96,7 +101,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   label: AppLocalizations.of(context)!.moshaf,
-                  backgroundColor: MyThemeData.colorGold,
+                  backgroundColor: provider.mode == ThemeMode.light
+                      ? MyThemeData.colorGold
+                      : MyThemeData.colorDark,
                 ),
                 BottomNavigationBarItem(
                   icon: const ImageIcon(
@@ -106,7 +113,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   //
                   label: AppLocalizations.of(context)!.ahadeth,
-                  backgroundColor: MyThemeData.colorGold,
+                  backgroundColor: provider.mode == ThemeMode.light
+                      ? MyThemeData.colorGold
+                      : MyThemeData.colorDark,
                 ),
                 BottomNavigationBarItem(
                   icon: const ImageIcon(
@@ -115,20 +124,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   label: AppLocalizations.of(context)!.sabha,
-                  backgroundColor: MyThemeData.colorGold,
+                  backgroundColor: provider.mode == ThemeMode.light
+                      ? MyThemeData.colorGold
+                      : MyThemeData.colorDark,
                 ),
                 BottomNavigationBarItem(
                   icon: const ImageIcon(AssetImage('assets/images/radio.png')),
                   label: AppLocalizations.of(context)!.radio,
-                  backgroundColor: MyThemeData.colorGold,
+                  backgroundColor: provider.mode == ThemeMode.light
+                      ? MyThemeData.colorGold
+                      : MyThemeData.colorDark,
                 ),
                 BottomNavigationBarItem(
                   icon: const Icon(Icons.settings),
                   label: AppLocalizations.of(context)!.setting,
-                  backgroundColor: MyThemeData.colorGold,
+                  backgroundColor: provider.mode == ThemeMode.light
+                      ? MyThemeData.colorGold
+                      : MyThemeData.colorDark,
                 ),
               ]),
-          body: taps[currentIndex],
+          body: taps[provider.currentIndex],
         ),
       ],
     );

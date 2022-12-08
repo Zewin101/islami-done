@@ -6,7 +6,16 @@
      "quran":"قرأن",
      "sabha":"سبحة",
      "moshaf":"مصحف",
-       "click":"اضغط هنا",
-         "setting":"اعدادات"
+     "click":"اضغط هنا",
+     "setting":"اعدادات",
+      "theme":"السيمات",
+      "language":"اللغة",
+      "arabic":"عربــي",
+      "english":"English",
+      "light":"نهاري",
+      "dark":"ليلي"
+
+
+
 
 }

@@ -1,32 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:islami/my_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/provider/myProvider.dart';
+import 'package:provider/provider.dart';
 
-class SabhaScreen extends StatefulWidget {
-  @override
-  State<SabhaScreen> createState() => _SabhaScreenState();
-}
-
-class _SabhaScreenState extends State<SabhaScreen> {
-  List<String> tsabeh = [
-    'الله اكبر',
-    'الحمد لله',
-    'سبحان الله',
-    'لا اله إلا الله'
-  ];
-  int counterColors = 0;
-  int counter = 0;
-  int tsabehItem = 0;
-
-  List<Color> colortsabeh = [
-    Color.fromRGBO(214, 193, 164, 1.0),
-    Color.fromRGBO(211, 183, 105, 1.0),
-    Color.fromRGBO(218, 168, 28, 1.0),
-    Color.fromRGBO(178, 132, 1, 1.0),
-  ];
-
+class SabhaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return SingleChildScrollView(
       child: Center(
         child: Column(
@@ -44,7 +25,7 @@ class _SabhaScreenState extends State<SabhaScreen> {
                           height: 60,
                         ),
                         Text(
-                          counter.toString(),
+                          provider.counter.toString(),
                           style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 100,
@@ -60,20 +41,16 @@ class _SabhaScreenState extends State<SabhaScreen> {
             SizedBox(
               height: 20,
             ),
-            // Text(
-            //   'عدد التسبيحات',
-            //   style: Theme.of(context).textTheme.headline1,
-            // ),
             Container(
               width: 150,
               height: 60,
               decoration: BoxDecoration(
-                color: colortsabeh[counterColors],
+                color: provider.colortsabeh[provider.counterColors],
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Center(
                 child: Text(
-                  tsabeh[tsabehItem],
+                  provider.tsabeh[provider.tsabehItem],
                   style: Theme.of(context).textTheme.subtitle1,
                   textAlign: TextAlign.center,
                 ),
@@ -91,6 +68,7 @@ class _SabhaScreenState extends State<SabhaScreen> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  // backgroundColor : MyThemeData.colorGold,
                   side: BorderSide(color: Colors.amber, width: 1),
                   textStyle: const TextStyle(
                       color: Colors.white,
@@ -100,17 +78,7 @@ class _SabhaScreenState extends State<SabhaScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                 ),
                 onPressed: () {
-                  counter++;
-                  if (counter == 34) {
-                    counter = 0;
-                    tsabeh.length - 1 == tsabehItem
-                        ? tsabehItem = 0
-                        : tsabehItem++;
-                    counterColors == tsabeh.length - 1
-                        ? counterColors = 0
-                        : counterColors++;
-                  }
-                  setState(() {});
+                  provider.sebhaNum();
                 },
                 child: Text(
                   AppLocalizations.of(context)!.click,
