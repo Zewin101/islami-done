@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
     return Stack(
       children: [
         Image.asset(
-          provider.changeBackGround(),
+          provider.changeBackground(),
           width: double.infinity,
           fit: BoxFit.fitWidth,
         ),
@@ -56,11 +56,14 @@ class HomeScreen extends StatelessWidget {
                       : provider.changeLanguage('an');
                   provider.language = !provider.language;
                 },
-                icon: Icon(
-                  Icons.language,
-                  color: provider.language
-                      ? provider.colorIcon = MyThemeData.colorDark
-                      : provider.colorIcon = MyThemeData.colorGold,
+                icon: Text(
+                  provider.languageLocal == "ar" ? "AR" : 'EN',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: provider.mode == ThemeMode.light
+                        ? Colors.black
+                        : Colors.white,
+                  ),
                 ),
               ),
               IconButton(
@@ -72,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                 },
                 icon: Icon(
                   provider.mode == ThemeMode.dark
-                      ? Icons.nightlight_outlined
+                      ? Icons.nightlight_round
                       : Icons.light_mode,
                 ),
               ),

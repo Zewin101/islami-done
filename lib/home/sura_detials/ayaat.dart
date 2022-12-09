@@ -11,7 +11,7 @@ class AyaatItem extends StatelessWidget {
     return Text(
       '${aya + '(${numAya.toString()})'}',
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.headline3,
     );
   }
 }

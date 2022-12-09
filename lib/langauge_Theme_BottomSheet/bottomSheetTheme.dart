@@ -15,6 +15,7 @@ class bottomSheetTheme extends StatelessWidget {
           InkWell(
             onTap: () {
               provider.changeThemeMode(ThemeMode.light);
+              provider.change();
             },
             child: Container(
               decoration: BoxDecoration(
@@ -43,6 +44,7 @@ class bottomSheetTheme extends StatelessWidget {
           InkWell(
             onTap: () {
               provider.changeThemeMode(ThemeMode.dark);
+              provider.change();
             },
             child: Container(
               decoration: BoxDecoration(

@@ -29,6 +29,18 @@ class MyProvider extends ChangeNotifier {
     Color.fromRGBO(218, 168, 28, 1.0),
     Color.fromRGBO(178, 132, 1, 1.0),
   ];
+  bool cha = true;
+
+  void change() {
+    cha = !cha;
+    notifyListeners();
+  }
+
+  String changeBackground() {
+    return mode == ThemeMode.light
+        ? 'assets/images/background.png'
+        : 'assets/images/backgroundDark.png';
+  }
 
   void changeLanguage(String languase) {
     languageLocal = languase;
@@ -43,12 +55,6 @@ class MyProvider extends ChangeNotifier {
   void current_Index(int index) {
     currentIndex = index;
     notifyListeners();
-  }
-  String changeBackGround() {
-    if (mode == ThemeMode.dark) {
-      return 'assets/images/background.png';
-    } else
-      return 'assets/images/background.png';
   }
 
   void sebhaNum() {

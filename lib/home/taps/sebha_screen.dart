@@ -26,10 +26,7 @@ class SabhaScreen extends StatelessWidget {
                         ),
                         Text(
                           provider.counter.toString(),
-                          style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 100,
-                          ),
+                          style: Theme.of(context).textTheme.headline4,
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -51,7 +48,7 @@ class SabhaScreen extends StatelessWidget {
               child: Center(
                 child: Text(
                   provider.tsabeh[provider.tsabehItem],
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.headline3,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -68,7 +65,7 @@ class SabhaScreen extends StatelessWidget {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  // backgroundColor : MyThemeData.colorGold,
+                  primary: MyThemeData.colorGold,
                   side: BorderSide(color: Colors.amber, width: 1),
                   textStyle: const TextStyle(
                       color: Colors.white,

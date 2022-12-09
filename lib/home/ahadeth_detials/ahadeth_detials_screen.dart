@@ -43,7 +43,7 @@ class Hadeth_Detials extends StatelessWidget {
                   itemCount: args.hadethContent.length,
                   itemBuilder: (context, index) => Text(
                     args.hadethContent[index],
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.headline3,
                     textAlign: TextAlign.center,
                   ),
                 ),
