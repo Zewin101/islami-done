@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/home/taps/ahadeth_screen.dart';
 import 'package:islami/home/taps/moshaf/moshaf_screen.dart';
-import 'package:islami/home/taps/radio_screen.dart';
+import 'package:islami/home/taps/radio/radio_screen.dart';
 import 'package:islami/home/taps/sebha_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home/taps/setting.dart';
@@ -26,29 +26,6 @@ class HomeScreen extends StatelessWidget {
         Scaffold(
           appBar: AppBar(
             actions: [
-              //DropdownButton
-              // DropdownButton(//   style: TextStyle(
-              //       fontSize: 15,
-              //       fontWeight: FontWeight.bold
-              //   ),
-              //   focusColor:  Colors.transparent,
-              //   elevation: 0,
-              //   dropdownColor: Colors.transparent,
-              //   value: dropdownvalue,
-              //   icon: Icon(Icons.language),
-              //   items: items.map(( items) {
-              //     return DropdownMenuItem(
-              //       value: items,
-              //       child: Text(items),
-              //     );
-              //   }).toList(),
-              //   onChanged: (String? value) {
-              //     dropdownvalue=value!;
-              //     setState(() {
-              //     });
-              //   },
-              //
-              // ),
               IconButton(
                 onPressed: () {
                   provider.language
@@ -57,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                   provider.language = !provider.language;
                 },
                 icon: Text(
-                  provider.languageLocal == "ar" ? "AR" : 'EN',
+                  provider.languageLocal == "ar" ? "EN" : 'AR',
                   style: TextStyle(
                     fontSize: 20,
                     color: provider.mode == ThemeMode.light

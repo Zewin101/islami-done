@@ -30,7 +30,6 @@ class MyProvider extends ChangeNotifier {
     Color.fromRGBO(178, 132, 1, 1.0),
   ];
   bool cha = true;
-
   void change() {
     cha = !cha;
     notifyListeners();
@@ -80,4 +79,13 @@ class MyProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+
+  bool playOrPause=true;
+  void playPause(){
+    playOrPause=!playOrPause;
+
+    notifyListeners();
+  }
+
 }
