@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:islami/home/taps/ahadeth_screen.dart';
-import 'package:islami/home/taps/moshaf/moshaf_screen.dart';
-import 'package:islami/home/taps/radio/radio_screen.dart';
-import 'package:islami/home/taps/sebha_screen.dart';
+import 'package:zewin2/home/taps/ahadeth_screen.dart';
+import 'package:zewin2/home/taps/moshaf/moshaf_screen.dart';
+import 'package:zewin2/home/taps/radio/radio_screen.dart';
+import 'package:zewin2/home/taps/sebha_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/home/taps/setting.dart';
-import 'package:islami/my_theme.dart';
-import 'package:islami/provider/homeScreenProvider.dart';
-import 'package:islami/provider/myProvider.dart';
+import 'package:zewin2/home/taps/setting.dart';
+import 'package:zewin2/my_theme.dart';
+import 'package:zewin2/provider/homeScreenProvider.dart';
+import 'package:zewin2/provider/myProvider.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {

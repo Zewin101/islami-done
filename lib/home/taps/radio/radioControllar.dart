@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami/provider/myProvider.dart';
+import 'package:zewin2/provider/myProvider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../model/Radio_Response.dart';

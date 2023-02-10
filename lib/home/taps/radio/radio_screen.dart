@@ -1,8 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/home/taps/radio/radioControllar.dart';
-import 'package:islami/shried/remote/remote.dart';
+import 'package:zewin2/home/taps/radio/radioControllar.dart';
+import 'package:zewin2/shried/remote/remote.dart';
 
 import '../../../model/Radio_Response.dart';
 
@@ -48,7 +48,7 @@ class _RadioScreenState extends State<RadioScreen> {
                   var radio = snapshot.data?.radios ?? [];
                   return Expanded(
                     child: ListView.builder(
-                      physics:  PageScrollPhysics(),
+                      // physics:  PageScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemCount: radio.length,
                       itemBuilder: (context, index) {
@@ -56,8 +56,6 @@ class _RadioScreenState extends State<RadioScreen> {
                           tittel: radio[index].name ?? '',
                           functionPlay: () {
                             play(radio[index].radioUrl ?? "");
-
-
                           },
                           functionNext: () {
                           },

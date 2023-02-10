@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/home/home_screen.dart';
-import 'package:islami/home/sura_detials/sura_detials_screen.dart';
-import 'package:islami/my_theme.dart';
+import 'package:zewin2/home/home_screen.dart';
+import 'package:zewin2/home/sura_detials/sura_detials_screen.dart';
+import 'package:zewin2/my_theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/provider/homeScreenProvider.dart';
-import 'package:islami/provider/myProvider.dart';
-import 'package:islami/provider/sura_provider.dart';
+import 'package:zewin2/provider/homeScreenProvider.dart';
+import 'package:zewin2/provider/myProvider.dart';
+import 'package:zewin2/provider/sura_provider.dart';
 import 'package:provider/provider.dart';
 import 'home/ahadeth_detials/ahadeth_detials_screen.dart';
 

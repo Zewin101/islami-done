@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/my_theme.dart';
+import 'package:zewin2/my_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/provider/myProvider.dart';
+import 'package:zewin2/provider/myProvider.dart';
 import 'package:provider/provider.dart';
 import '../ahadeth_detials/ahadeth_detials_screen.dart';
 

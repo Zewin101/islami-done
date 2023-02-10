@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/home/taps/moshaf/sura_item.dart';
-import 'package:islami/home/taps/moshaf/sura_name.dart';
-import 'package:islami/my_theme.dart';
+import 'package:zewin2/home/taps/moshaf/sura_item.dart';
+import 'package:zewin2/home/taps/moshaf/sura_name.dart';
+import 'package:zewin2/my_theme.dart';
 
 class MoshafScreen extends StatelessWidget {
   @override

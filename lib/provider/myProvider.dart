@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/my_theme.dart';
+import 'package:zewin2/my_theme.dart';
 
 import '../home/taps/ahadeth_screen.dart';
 

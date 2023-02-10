@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/home/sura_detials/ayaat.dart';
-import 'package:islami/my_theme.dart';
+import 'package:zewin2/home/sura_detials/ayaat.dart';
+import 'package:zewin2/my_theme.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/sura_provider.dart';
